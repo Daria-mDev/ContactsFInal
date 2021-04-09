@@ -26,11 +26,6 @@ class CustomAvatarViewController: UIViewController {
     private var gifUrl: URL?
     private var avatarView: AvatarView = .customView
     
-    func hide(customView isCustomView: Bool) {
-        avatarImageView.isHidden = !isCustomView
-        customAvatarView.isHidden = isCustomView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         switch avatarView {
@@ -57,6 +52,12 @@ class CustomAvatarViewController: UIViewController {
             self.gifUrl = URL(string:gifUrl)
         }
     }
+    
+    private func hide(customView isCustomView: Bool) {
+        avatarImageView.isHidden = !isCustomView
+        customAvatarView.isHidden = isCustomView
+    }
+    
     @IBAction func tapAvatarView(_ sender: Any) {
         UIView.animate(withDuration: 1.0,
                        delay: 1.0,
